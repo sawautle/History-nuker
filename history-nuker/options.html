@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>History Nuker — Settings</title>
+  <link rel="stylesheet" href="options.css" />
+</head>
+<body>
+  <div class="page">
+
+    <header class="masthead">
+      <div class="badge" aria-hidden="true">
+        <img src="icons/icon-96.png" alt="" />
+      </div>
+      <div class="masthead-text">
+        <h1>History Nuker</h1>
+        <p class="tagline">Go quiet long enough, and we clear your tracks.</p>
+      </div>
+    </header>
+
+    <div class="hairline" aria-hidden="true"></div>
+
+    <main>
+
+      <section class="card" aria-labelledby="timing-heading">
+        <div class="card-head">
+          <h2 id="timing-heading">Timing</h2>
+          <p class="card-sub">How long a gap between launches counts as "gone".</p>
+        </div>
+        <div class="row">
+          <div class="row-text">
+            <label for="daysBeforeNuke">Days before nuking</label>
+            <p class="row-desc">Counted from your last browser startup, not from when a page was visited.</p>
+          </div>
+          <div class="row-control">
+            <input type="number" id="daysBeforeNuke" min="1" max="365" step="1" inputmode="numeric" />
+          </div>
+        </div>
+      </section>
+
+      <section class="card" aria-labelledby="scope-heading">
+        <div class="card-head">
+          <h2 id="scope-heading">What gets deleted</h2>
+          <p class="card-sub">Only what's switched on here is touched.</p>
+        </div>
+        <div class="row">
+          <div class="row-text">
+            <label for="deleteBrowsingHistory">Delete browsing history</label>
+            <p class="row-desc">Clears your full browsing history when the threshold is hit.</p>
+          </div>
+          <div class="row-control">
+            <button type="button" class="switch" id="deleteBrowsingHistory" role="switch" aria-checked="false"><span class="knob"></span></button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="row-text">
+            <label for="deleteDownloadHistory">Delete download history</label>
+            <p class="row-desc">Clears the download list only — your downloaded files are never touched. Asks for one extra permission the first time you turn this on.</p>
+          </div>
+          <div class="row-control">
+            <button type="button" class="switch" id="deleteDownloadHistory" role="switch" aria-checked="false"><span class="knob"></span></button>
+          </div>
+        </div>
+      </section>
+
+      <section class="card" aria-labelledby="notif-heading">
+        <div class="card-head">
+          <h2 id="notif-heading">Notification</h2>
+          <p class="card-sub">What you'll see after a nuke.</p>
+        </div>
+        <div class="row">
+          <div class="row-text">
+            <label for="notificationsEnabled">Show a notification</label>
+            <p class="row-desc">A system notification appears right after history is cleared.</p>
+          </div>
+          <div class="row-control">
+            <button type="button" class="switch" id="notificationsEnabled" role="switch" aria-checked="false"><span class="knob"></span></button>
+          </div>
+        </div>
+        <div class="row row-stacked">
+          <div class="row-text">
+            <label for="customMessage">Message</label>
+            <p class="row-desc">Shown in the notification. Make it as dramatic as you like.</p>
+          </div>
+          <textarea id="customMessage" rows="3" maxlength="300"></textarea>
+        </div>
+      </section>
+
+      <section class="card danger-card" aria-labelledby="test-heading">
+        <div class="card-head">
+          <h2 id="test-heading">Test nuke</h2>
+          <p class="card-sub">Runs the exact same deletion the extension would run on a real timeout — right now, on your current settings.</p>
+        </div>
+        <div class="row row-single">
+          <button type="button" class="test-btn" id="testNukeBtn">Run test nuke 💀</button>
+          <p class="status" id="statusMessage" role="status" aria-live="polite"></p>
+        </div>
+      </section>
+
+    </main>
+
+    <footer class="foot">
+      <p id="lastStartupInfo">—</p>
+    </footer>
+
+  </div>
+
+  <script src="options.js"></script>
+</body>
+</html>
